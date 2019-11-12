@@ -1,4 +1,3 @@
-import 'package:bitcoin_ticker/components/conversion.dart';
 import 'package:flutter/material.dart';
 
 class ReusableCard extends StatefulWidget {
