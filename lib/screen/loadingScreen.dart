@@ -1,7 +1,5 @@
-import 'dart:convert';
-import 'package:bitcoin_ticker/components/conversion.dart';
 import 'package:bitcoin_ticker/utilities/constant.dart';
-import 'package:bitcoin_ticker/price_screen.dart';
+import 'package:bitcoin_ticker/screen/price_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:bitcoin_ticker/services/network.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -12,8 +10,8 @@ class LoadingScreen extends StatefulWidget {
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
+  double bData, eData, lData;
   NetworkHelper networkHelper = NetworkHelper();
-  Conversion conversion = Conversion();
   @override
   void initState() {
     super.initState();
@@ -21,22 +19,19 @@ class _LoadingScreenState extends State<LoadingScreen> {
   }
 
   void getCoinData() async {
-    dynamic Bdata = await networkHelper.getData(
+    bData = await networkHelper.getData(
         url: '${coinAverageGlobalPriceApiURL}BTCUSD');
-    conversion.setBprice(Bdata);
 
-    dynamic Edata = await networkHelper.getData(
+    eData = await networkHelper.getData(
         url: '${coinAverageGlobalPriceApiURL}ETHUSD');
-    conversion.setEprice(Edata);
 
-    dynamic Ldata = await networkHelper.getData(
+    lData = await networkHelper.getData(
         url: '${coinAverageGlobalPriceApiURL}LTCUSD');
-    conversion.setLprice(Ldata);
 
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => PriceScreen(),
+        builder: (context) => PriceScreen(b: bData, e: eData, l: lData),
       ),
     );
   }
