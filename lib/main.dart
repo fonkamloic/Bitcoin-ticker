@@ -1,6 +1,5 @@
 import 'package:bitcoin_ticker/screen/loadingScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:bitcoin_ticker/screen/loadingScreen.dart';
 
 void main() => runApp(MyApp());
 
