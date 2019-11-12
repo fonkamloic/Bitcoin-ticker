@@ -1,9 +1,9 @@
-import 'package:bitcoin_ticker/coin_data.dart';
+import 'package:bitcoin_ticker/components/reusableCard.dart';
 import 'package:bitcoin_ticker/services/network.dart';
+import 'package:bitcoin_ticker/utilities/coin_data.dart';
 import 'package:bitcoin_ticker/utilities/constant.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:bitcoin_ticker/reusableCard.dart';
 import 'dart:io' show Platform;
 
 class PriceScreen extends StatefulWidget {
